@@ -1,4 +1,4 @@
-# Personal Portfolio Website of Chinmay Nawkar, a front-end developer based in Akola, India.
+# Personal Portfolio Website of Chinmay Nawkar, a front-end developer 
 
 Built with NextJS, Chakra UI, and Framer Motion.
 
