@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   Box,
   Flex,
@@ -10,9 +10,9 @@ import {
   SimpleGrid,
   Icon,
   Stack,
-} from '@chakra-ui/react';
-import { ChakraNextImage } from './ChakraNextImage';
-import { IoLogoCss3, IoLogoHtml5, IoLogoJavascript } from 'react-icons/io';
+} from "@chakra-ui/react";
+import { ChakraNextImage } from "./ChakraNextImage";
+import { IoLogoCss3, IoLogoHtml5, IoLogoJavascript } from "react-icons/io";
 import {
   SiNextdotjs,
   SiReact,
@@ -25,7 +25,7 @@ import {
   SiFirebase,
   SiMaterialui,
   SiAmazonaws,
-} from 'react-icons/si';
+} from "react-icons/si";
 
 function StatsCard(props) {
   const { icon } = props;
@@ -34,16 +34,16 @@ function StatsCard(props) {
       align="center"
       justify="center"
       px={{ base: 2, md: 4 }}
-      py={'2'}
-      shadow={'lg'}
+      py={"2"}
+      shadow={"lg"}
       borderWidth={1}
-      borderColor={useColorModeValue('gray.400', 'gray.700')}
-      color={useColorModeValue('gray.700', 'gray.100')}
-      rounded={'lg'}
+      borderColor={useColorModeValue("gray.400", "gray.700")}
+      color={useColorModeValue("gray.700", "gray.100")}
+      rounded={"lg"}
       transition="all 0.2s"
       _hover={{
-        borderColor: useColorModeValue('purple.400', 'purple.300'),
-        color: useColorModeValue('purple.700', 'purple.300'),
+        borderColor: useColorModeValue("purple.400", "purple.300"),
+        color: useColorModeValue("purple.700", "purple.300"),
       }}
     >
       {icon}
@@ -53,12 +53,12 @@ function StatsCard(props) {
 
 const draw = {
   hidden: { pathLength: 0, opacity: 0 },
-  visible: i => {
+  visible: (i) => {
     return {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { type: 'spring', duration: 1, bounce: 0 },
+        pathLength: { type: "spring", duration: 1, bounce: 0 },
         opacity: { duration: 0.01 },
       },
     };
@@ -68,14 +68,14 @@ const draw = {
 const mobileVariants = {
   hidden: {
     opacity: 0,
-    x: '-100vw',
+    x: "-100vw",
   },
   visible: {
     opacity: 1,
     x: 0,
     rotate: [0, 270, 270, 0],
     transition: {
-      type: 'spring',
+      type: "spring",
       delay: 0.5,
       stiffness: 100,
       damping: 20,
@@ -84,8 +84,8 @@ const mobileVariants = {
 };
 
 export const AboutMeSection = () => {
-  const bg = useColorModeValue('white', 'gray.100');
-  const textColor = useColorModeValue('gray.700', 'gray.200');
+  const bg = useColorModeValue("white", "gray.100");
+  const textColor = useColorModeValue("gray.700", "gray.200");
 
   return (
     <>
@@ -95,13 +95,13 @@ export const AboutMeSection = () => {
         justify="center"
         position="relative"
         id="about"
-        bg={useColorModeValue('blackAlpha.50', 'gray.600')}
+        bg={useColorModeValue("blackAlpha.50", "gray.600")}
       >
         <Stack
           as={motion.div}
           initial="hidden"
           whileInView="visible"
-          textAlign={'center'}
+          textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
           py={{ base: 20, md: 36 }}
           maxW="7xl"
@@ -110,52 +110,49 @@ export const AboutMeSection = () => {
             mb={4}
             color={textColor}
             letterSpacing={2}
-            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+            fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
             textAlign="center"
             className="section-heading"
-            display={'inline-block'}
+            display={"inline-block"}
           >
-            About{' '}
-            <Text as={'span'} color={useColorModeValue('teal.500', 'teal.200')}>
+            About{" "}
+            <Text as={"span"} color={useColorModeValue("teal.500", "teal.200")}>
               Me
             </Text>
           </Heading>
 
           <Flex
-            width={'100%'}
+            width={"100%"}
             align="center"
-            justify={'center'}
+            justify={"center"}
             flexWrap="wrap"
           >
             <Box
-              width={{ base: '100%', lg: '50%' }}
+              width={{ base: "100%", lg: "50%" }}
               mb={{ base: 6, lg: 0 }}
               marginRight={{ base: 0, lg: 4 }}
             >
               <Text
-                fontSize={'2xl'}
-                mb={{ base: 6, lg: 3 }}
-                mx={{ base: 'auto', lg: 0 }}
-                color={textColor}
-                textAlign={{ base: 'center', lg: 'start' }}
-                width={{ base: '65%', lg: '100%' }}
-              >
-                 "Where creativity meets technology, I'm your developer!"
-              </Text>
-              <Text
-                fontSize={'2xl'}
+                fontSize={"2xl"}
                 mb={3}
-                mx={{ base: 'auto', lg: 0 }}
+                mx={{ base: "auto", lg: 0 }}
                 color={textColor}
-                textAlign={{ base: 'center', lg: 'start' }}
-                width={{ base: '65%', lg: '100%' }}
+                textAlign={{ base: "center", lg: "start" }}
+                width={{ base: "65%", lg: "100%" }}
               >
-                Hi, I'm Chinmay Nawkar, a MERN-stack developer from Akola, India. I build web apps with React and TypeScript, create mobile apps with Swift, and handle databases with MySQL and MongoDB. I'm also exploring AWS and blockchain. Let's create something amazing! 🚀
+                Hi, I'm Chinmay Nawkar, a <strong>Full Stack Engineer</strong>{" "}
+                with <strong>1.5+ years of experience</strong> building scalable
+                applications with the <strong>MERN stack</strong>. I specialize
+                in bridging Web2 and Web3technologies, with expertise in{" "}
+                <strong>Zero-Knowledge Proof (ZKP) circuits</strong> using{" "}
+                <strong>Circom and Solidity</strong>. I architect and deliver
+                robust solutions across the full stack, from backend APIs to
+                responsive frontends. Let's create something amazing! 🚀
               </Text>
             </Box>
 
             <Box
-              bg={useColorModeValue('transparent', 'gray.100')}
+              bg={useColorModeValue("transparent", "gray.100")}
               padding={4}
               align="center"
               justify="center"
@@ -216,7 +213,7 @@ export const AboutMeSection = () => {
                   stroke="black"
                   strokeWidth="2"
                   strokeMiterlimit="10"
-                  fill={'none'}
+                  fill={"none"}
                 />
                 <motion.path
                   variants={draw}
@@ -234,7 +231,7 @@ export const AboutMeSection = () => {
                   stroke="black"
                   strokeWidth="2"
                   strokeMiterlimit="10"
-                  fill={'none'}
+                  fill={"none"}
                 />
                 <motion.path
                   variants={draw}
@@ -242,7 +239,7 @@ export const AboutMeSection = () => {
                   stroke="black"
                   strokeWidth="2"
                   strokeMiterlimit="10"
-                  fill={'none'}
+                  fill={"none"}
                 />
                 <motion.path
                   variants={draw}
@@ -276,12 +273,12 @@ export const AboutMeSection = () => {
             width="80px"
             height="100px"
             variants={mobileVariants}
-            bg={useColorModeValue('transparent', '#AB91DF')}
+            bg={useColorModeValue("transparent", "#AB91DF")}
             borderRadius={6}
-            display={{ base: 'none', sm: 'block' }}
+            display={{ base: "none", sm: "block" }}
           >
             <ChakraNextImage
-              src={'/images/mobile-ui-1.svg'}
+              src={"/images/mobile-ui-1.svg"}
               alt="mobile ui"
               height={100}
               width={80}
@@ -289,14 +286,14 @@ export const AboutMeSection = () => {
           </Box>
 
           {/* Statistics */}
-          <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
+          <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
             <chakra.h2
-              textAlign={'center'}
-              fontSize={'2xl'}
+              textAlign={"center"}
+              fontSize={"2xl"}
               pt={10}
               pb={5}
               fontWeight={500}
-              color={useColorModeValue('gray.700', 'gray.100')}
+              color={useColorModeValue("gray.700", "gray.100")}
             >
               Tech stack I'm currently working with:
             </chakra.h2>

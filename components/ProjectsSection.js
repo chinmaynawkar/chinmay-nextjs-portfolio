@@ -7,69 +7,85 @@ import {
   createIcon,
   SimpleGrid,
   useColorModeValue,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-import ProjectCard from './ProjectCard';
+import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    title: 'SwiftMessage',
+    title: "YC Startup App",
     description:
-      'The app is built using Firebase Firestore as a backend database,& it integrates libraries like Cocoapods & Swift Package Manager.',
-    image: 'flashchat.webp',
-    liveLink: 'https://www.youtube.com/watch?v=Ms3XojE8KVg&t=1s&ab_channel=AIwithChinmay',
-    githubLink: 'https://github.com/chinmaynawkar/FlashChatApp',
+      "A full-stack platform for startups to pitch ideas to investors, built with Next.js 15 and featuring Partial Prerendering for performance optimization.",
+    image: "yc-web.png",
+    liveLink: "https://yc-startup-app.vercel.app",
+    githubLink: "https://github.com/chinmaynawkar/yc-startup-app",
   },
   {
-    title: 'Split it !',
+    title: "Aura React Native",
     description:
-      'Bill-splitting app with itemization, customizable tip, and options for equal or percentage division',
-    image: 'billsplit.webp',
-    githubLink: 'https://github.com/chinmaynawkar/BillSpiltingApp',
+      "A React Native app that lets you upload reels on the platform - an Instagram-reel inspired application for seamless video sharing.",
+    image: "aura.png",
+    githubLink: "https://github.com/chinmaynawkar/aura-react-native",
   },
   {
-    title: 'Realtime Web Chat',
+    title: "WeCare",
+    description:
+      "Find the right doctor, book appointments, and access expert advice with We Care. ",
+    image: "we-care.png",
+    liveLink: "https://we-care-pk7k83tkv-chinmay-nawkars-projects.vercel.app/",
+    githubLink: "https://github.com/chinmaynawkar/WeCare",
+  },
+  {
+    title: "SwiftMessage",
+    description:
+      "The app is built using Firebase Firestore as a backend database,& it integrates libraries like Cocoapods & Swift Package Manager.",
+    image: "flashchat.webp",
+    liveLink:
+      "https://www.youtube.com/watch?v=Ms3XojE8KVg&t=1s&ab_channel=AIwithChinmay",
+    githubLink: "https://github.com/chinmaynawkar/FlashChatApp",
+  },
+  {
+    title: "Realtime Web Chat",
     description:
       'Real-time conversations with Node.js & Socket.io for seamless, instant communication."',
-    image: 'realtime.webp',
-    liveLink: 'https://youtu.be/b7RJ__Ty7vo',
-    githubLink: 'https://github.com/chinmaynawkar/ChilloutChatApp',
+    image: "realtime.webp",
+    liveLink: "https://youtu.be/b7RJ__Ty7vo",
+    githubLink: "https://github.com/chinmaynawkar/ChilloutChatApp",
   },
+
   {
     title: "CloudCharm",
     description:
-      'A user-friendly weather app crafted with Swift, Api Integration, URLSession, JSON parsing, & Core Location.',
-    image: 'weatherapp.webp',
-    liveLink: 'https://youtu.be/i3L9-1Y84Gg',
-    githubLink: 'https://github.com/chinmaynawkar/ClimaLiveWeatherApp',
+      "A user-friendly weather app crafted with Swift, Api Integration, URLSession, JSON parsing, & Core Location.",
+    image: "weatherapp.webp",
+    liveLink: "https://youtu.be/i3L9-1Y84Gg",
+    githubLink: "https://github.com/chinmaynawkar/ClimaLiveWeatherApp",
   },
- 
 ];
 
 export default function ProjectsSection() {
   return (
     <>
-      <Container maxW={'7xl'} as="section" id="projects">
+      <Container maxW={"7xl"} as="section" id="projects">
         <Stack
           as={Box}
-          textAlign={'center'}
+          textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
           py={{ base: 20, md: 36 }}
         >
           <Heading
             fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}
+            fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
+            lineHeight={"110%"}
           >
-            Some projects <br />
-            <Text as={'span'} color={useColorModeValue('teal.500', 'teal.200')}>
+            Some projects{" "}
+            <Text as={"span"} color={useColorModeValue("teal.500", "teal.200")}>
               I have built
             </Text>
           </Heading>
-          <Text color={useColorModeValue('gray.700', 'gray.200')} fontSize="xl">
-          Proficient in MERN ,Tailwind  and Swift.
-           I've built impactful projects showcasing my expertise. From crafting seamless user interfaces with Chakra UI 
-           to integrating APIs on platforms like Product management and Weather apps."
+          <Text color={useColorModeValue("gray.700", "gray.200")} fontSize="xl">
+            Proficient in MERN ,React Native and Zero Knowledge Proofs. I've
+            built impactful projects showcasing my expertise.
           </Text>
           <SimpleGrid
             columns={{ base: 1, md: 2, lg: 3 }}
@@ -95,8 +111,8 @@ export default function ProjectsSection() {
 }
 
 const Arrow = createIcon({
-  displayName: 'Arrow',
-  viewBox: '0 0 72 24',
+  displayName: "Arrow",
+  viewBox: "0 0 72 24",
   path: (
     <path
       fillRule="evenodd"

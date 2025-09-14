@@ -26,11 +26,14 @@ export default function ProjectCard({
       <Box
         maxW={'445px'}
         w={'full'}
+        h={'450px'}
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'md'}
         p={6}
         overflow={'hidden'}
+        display={'flex'}
+        flexDirection={'column'}
       >
         <Box
           h={'210px'}
@@ -48,7 +51,7 @@ export default function ProjectCard({
             priority
           />
         </Box>
-        <Stack>
+        <Stack flex={1}>
           <Heading
             color={useColorModeValue('gray.700', 'gray.200')}
             fontSize={'2xl'}
@@ -82,22 +85,24 @@ export default function ProjectCard({
           >
             <Icon as={FaGithub} w={7} h={7} />
           </Link>
-          <Link
-            as={motion.a}
-            color={useColorModeValue('#805AD5', '#D6BCFA')}
-            mr={5}
-            title="Visit live site"
-            whileHover={{
-              scale: 1.05,
-              color: '#6B46C1',
-              transition: { duration: 0.3, ease: 'easeOut' },
-            }}
-            href={liveLink}
-            isExternal
-            ml={5}
-          >
-            <Icon as={FiExternalLink} w={7} h={7} />
-          </Link>
+          {liveLink && (
+            <Link
+              as={motion.a}
+              color={useColorModeValue('#805AD5', '#D6BCFA')}
+              mr={5}
+              title="Visit live site"
+              whileHover={{
+                scale: 1.05,
+                color: '#6B46C1',
+                transition: { duration: 0.3, ease: 'easeOut' },
+              }}
+              href={liveLink}
+              isExternal
+              ml={5}
+            >
+              <Icon as={FiExternalLink} w={7} h={7} />
+            </Link>
+          )}
         </Stack>
       </Box>
     </Center>

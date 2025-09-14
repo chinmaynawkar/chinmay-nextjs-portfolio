@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   Flex,
   Container,
@@ -7,10 +7,11 @@ import {
   Text,
   Image,
   useColorModeValue,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-import { CustomButton } from './CustomButton';
-import { useState, useEffect } from 'react';
+import { CustomButton } from "./CustomButton";
+import TypingAnimation from "./TypingAnimation";
+import { useState, useEffect } from "react";
 
 export const HeroSection = () => {
   const heroImageVariants = {
@@ -47,21 +48,21 @@ export const HeroSection = () => {
   const lampImageVariants = {
     hidden: {
       scale: 0,
-      top: '-100px',
+      top: "-100px",
     },
     show: {
       scale: 1,
-      top: '-47px',
+      top: "-47px",
     },
   };
   const plantImageVariants = {
     hidden: {
       scale: 0,
-      x: '-500%',
+      x: "-500%",
     },
     show: {
       scale: 1,
-      x: '-2%',
+      x: "-2%",
     },
   };
 
@@ -74,52 +75,50 @@ export const HeroSection = () => {
     },
   };
   const typingAnimation = {
-    hidden: { width: '0%' },
+    hidden: { width: "0%" },
     show: {
-      width: '100%',
+      width: "100%",
       transition: {
-        duration:   2, // Adjust the duration as needed
-        ease: 'linear',
+        duration: 2, // Adjust the duration as needed
+        ease: "linear",
       },
     },
   };
-  
 
-  // Define the phrases and their display durations
+  // Define the phrases for typing animation
   const phrases = [
-    { text: 'A Full Stack Developer', duration:   1 },
-    { text: 'iOS Developer', duration:   1 },
-    { text: 'API Development', duration:   1},
-    { text: 'Backend Developer', duration:   1 },
+    "A Full Stack Developer",
+    "Mobile Application Developer",
+    "Exploring Blockchain World",
   ];
 
   // State to hold the current phrase and its index
-  const [currentPhrase, setCurrentPhrase] = useState(phrases[0].text);
+  const [currentPhrase, setCurrentPhrase] = useState(phrases[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Function to cycle through phrases
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        const nextIndex = (prevIndex +   1) % phrases.length;
-        setCurrentPhrase(phrases[nextIndex].text);
+        const nextIndex = (prevIndex + 1) % phrases.length;
+        setCurrentPhrase(phrases[nextIndex]);
         return nextIndex;
       });
-    }, phrases.reduce((total, phrase) => total + phrase.duration,   0) *   1000);
+    }, 4000); // Change phrase every 4 seconds
 
     // Clear interval on component unmount
     return () => clearInterval(interval);
   }, [phrases]);
 
   return (
-    <Container as="section" w={'100%'} maxWidth="7xl" py={8} id="home">
+    <Container as="section" w={"100%"} maxWidth="7xl" py={8} id="home">
       <Stack
-        w={'100%'}
-        textAlign={'center'}
-        align={'center'}
-        spacing={{ base:   6, md:   8, lg:   10 }}
-        pt={{ base:   20, md:   28 }}
-        pb={{ base:   10, md:   18 }}
+        w={"100%"}
+        textAlign={"center"}
+        align={"center"}
+        spacing={{ base: 6, md: 8, lg: 10 }}
+        pt={{ base: 20, md: 28 }}
+        pb={{ base: 10, md: 18 }}
       >
         <Flex align="center">
           <motion.div
@@ -127,18 +126,18 @@ export const HeroSection = () => {
             animate="show"
             variants={typingAnimation}
             style={{
-              overflow: 'hidden',
-              display: 'inline-block',
-              whiteSpace: 'nowrap',
+              overflow: "hidden",
+              display: "inline-block",
+              whiteSpace: "nowrap",
             }}
           >
             <Text
               as="h1"
               fontWeight={600}
-              fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-              lineHeight={'110%'}
-              color={useColorModeValue('purple.500', '#FBDC8D')}
-              textAlign={'center'}
+              fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+              lineHeight={"110%"}
+              color={useColorModeValue("purple.500", "#FBDC8D")}
+              textAlign={"center"}
             >
               Hi, I'm Chinmay!
             </Text>
@@ -146,147 +145,142 @@ export const HeroSection = () => {
           <Text
             as={motion.h1}
             style={{
-              display: 'inline-flex',
-              marginLeft: '0.5em',
+              display: "inline-flex",
+              marginLeft: "0.5em",
             }}
-            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-            animate={{ rotate: [20,   0,   20,   0,   20,   0] }}
+            fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+            animate={{ rotate: [20, 0, 20, 0, 20, 0] }}
             transition={{
-              from:   0,
-              duration:   0.7,
-              ease: 'easeInOut',
-              type: 'tween',
+              from: 0,
+              duration: 0.7,
+              ease: "easeInOut",
+              type: "tween",
             }}
           >
             👋
           </Text>
         </Flex>
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={typingAnimation}
+        <TypingAnimation
+          key={currentIndex} // Force re-render when phrase changes
+          duration={80}
+          delay={500}
+          startOnView={false}
+          className="typing-animation-text"
           style={{
-            overflow: 'hidden',
-            display: 'inline-block',
-            whiteSpace: 'nowrap',
+            fontSize: "clamp(1.875rem, 4vw, 4rem)", // Responsive font size
+            color: useColorModeValue("gray.600", "gray.200"),
+            marginTop: "0 !important",
+            fontWeight: "600",
+            lineHeight: "110%",
           }}
         >
-          {/* Render the current phrase here */}
-          <Text
-            as="h1"
-            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-            color={useColorModeValue('gray.600', 'gray.200')}
-            sx={{ marginTop: '0 !important' }}
-          >
-            {currentPhrase}
-          </Text>
-        </motion.div>
+          {currentPhrase}
+        </TypingAnimation>
         {/* Hero image */}
         <Flex
-          height={{ base: '212px', sm: '303px', md: '363px', lg: '424px' }}
-          width={{ base: '350px', sm: '500px', md: '600px', lg: '700px' }}
+          height={{ base: "212px", sm: "303px", md: "363px", lg: "424px" }}
+          width={{ base: "350px", sm: "500px", md: "600px", lg: "700px" }}
           pt={8}
           pb={2}
           px={6}
           as={motion.div}
-          initial={'hidden'}
-          animate={'show'}
+          initial={"hidden"}
+          animate={"show"}
           variants={heroImageVariants}
           position="relative"
-          overflow={'hidden'}
-          bg={useColorModeValue('transparent', 'gray.700')}
+          overflow={"hidden"}
+          bg={useColorModeValue("transparent", "gray.700")}
           borderRadius={8}
         >
-        
           <Image
             as={motion.img}
-            src={'/images/woman.svg'}
+            src={"/images/woman.svg"}
             alt="woman"
             variants={womanImageVariants}
             position="absolute"
-            w={'62%'}
-            left={'17%'}
-            bottom={'0%'}
-           
+            w={"62%"}
+            left={"17%"}
+            bottom={"0%"}
           />
           <Image
             as={motion.img}
             variants={lampImageVariants}
-            src={'/images/lamp.svg'}
+            src={"/images/lamp.svg"}
             alt="lamp"
             position="absolute"
-            w={'10%'}
-            left={'15%'}
+            w={"10%"}
+            left={"15%"}
           />
           <Image
             as={motion.img}
             variants={plantImageVariants}
-            src={'/images/plant.svg'}
+            src={"/images/plant.svg"}
             alt="plant"
             position="absolute"
-            w={'13%'}
-            bottom={'2%'}
+            w={"13%"}
+            bottom={"2%"}
           />
 
           <Image
             as={motion.img}
             variants={heroImageChildrenVariants}
-            src={'/images/graphics1.svg'}
+            src={"/images/graphics1.svg"}
             alt="graphics"
             position="absolute"
-            w={'5%'}
-            top={{ base: '30%', md: '25%' }}
-            left={'62%'}
+            w={"5%"}
+            top={{ base: "30%", md: "25%" }}
+            left={"62%"}
           />
           <Image
             as={motion.img}
             variants={heroImageChildrenVariants}
-            src={'/images/graphics2.svg'}
+            src={"/images/graphics2.svg"}
             alt="graphics"
             position="absolute"
-            w={'5%'}
-            top={'25%'}
-            left={'72%'}
+            w={"5%"}
+            top={"25%"}
+            left={"72%"}
           />
           <Image
             as={motion.img}
             variants={heroImageChildrenVariants}
-            src={'/images/graphics3.svg'}
+            src={"/images/graphics3.svg"}
             alt="graphics"
             position="absolute"
-            w={'5%'}
-            top={'35%'}
-            left={'75%'}
+            w={"5%"}
+            top={"35%"}
+            left={"75%"}
           />
           <Image
             as={motion.img}
             variants={heroImageChildrenVariants}
-            src={'/images/graphics4.svg'}
+            src={"/images/graphics4.svg"}
             alt="graphics"
             position="absolute"
-            w={'5%'}
-            top={{ base: '42%', md: '35%' }}
-            left={'84%'}
+            w={"5%"}
+            top={{ base: "42%", md: "35%" }}
+            left={"84%"}
           />
           <Image
             as={motion.img}
             variants={bookImageVariants}
-            src={'/images/book.svg'}
+            src={"/images/book.svg"}
             alt="book"
             position="absolute"
-            w={'2%'}
-            top={'3.5%'}
-            left={'87%'}
+            w={"2%"}
+            top={"3.5%"}
+            left={"87%"}
             style={{ originY: 1, originX: 0 }}
           />
         </Flex>
         <Text
-          color={useColorModeValue('gray.600', 'gray.400')}
-          fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
-          lineHeight={'110%'}
+          color={useColorModeValue("gray.600", "gray.400")}
+          fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+          lineHeight={"110%"}
           mt={6}
         >
-          "I'm here to turn coffee into code, one cup at a time. And I've just finished my coffee art!"
+          I'm here to turn coffee into code, one cup at a time. And I've just
+          finished my coffee art!
         </Text>
         <CustomButton href="#contact" label={"Let's get in touch!"} />
       </Stack>
